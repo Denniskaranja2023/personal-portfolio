@@ -27,7 +27,7 @@ export default function Contact() {
     setError(null)
     
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('https://personal-portfolio-sbc5.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
