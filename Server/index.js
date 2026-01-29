@@ -14,7 +14,9 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://personal-portfolio-red-two-lnwlzgtaxp.vercel.app'
+    'https://personal-portfolio-red-two-lnwlzgtaxp.vercel.app',
+    'https://www.denniswanyeki.dev',
+    'https://www.denniswanyeki.dev/'
   ],
   methods: ['GET', 'POST'],
   credentials: true
