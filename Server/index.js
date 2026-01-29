@@ -11,7 +11,14 @@ const PORT = process.env.PORT || 5000
 // Initialize Resend
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-app.use(cors())
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://personal-portfolio-red-two-lnwlzgtaxp.vercel.app'
+  ],
+  methods: ['GET', 'POST'],
+  credentials: true
+}))
 app.use(express.json())
 
 // Health check endpoint
