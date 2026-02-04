@@ -1,17 +1,25 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, Github, ExternalLink, Calendar, Code2, Users, Zap, Target, Lightbulb } from 'lucide-react'
+import { ArrowLeft, Github, ExternalLink, Calendar, Code2, Users, Zap, Target, Lightbulb, Lock, User, Eye, EyeOff } from 'lucide-react'
 import { projects } from '../data/projects'
 
 export default function ProjectDetail() {
   const { id } = useParams()
   const [project, setProject] = useState(null)
+  const [showPasswords, setShowPasswords] = useState({})
 
   useEffect(() => {
     const projectId = parseInt(id)
     const foundProject = projects.find(p => p.id === projectId)
     setProject(foundProject)
   }, [id])
+
+  const togglePasswordVisibility = (index) => {
+    setShowPasswords(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }))
+  }
 
   if (!project) {
     return (
@@ -203,6 +211,48 @@ export default function ProjectDetail() {
                   </a>
                 </div>
               </div>
+
+              {/* Login Credentials */}
+              {project.loginCredentials && (
+                <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-lg shadow-blue-500/5 border border-blue-100 dark:border-gray-700 transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center space-x-2">
+                    <Lock size={18} className="text-blue-600 dark:text-blue-400" />
+                    <span>Login Credentials</span>
+                  </h3>
+                  <div className="space-y-3">
+                    {project.loginCredentials.map((cred, index) => (
+                      <div key={index} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-3">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+                            {cred.role}
+                          </span>
+                          <button
+                            onClick={() => togglePasswordVisibility(index)}
+                            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                            title={showPasswords[index] ? 'Hide password' : 'Show password'}
+                          >
+                            {showPasswords[index] ? <EyeOff size={14} /> : <Eye size={14} />}
+                          </button>
+                        </div>
+                        <div className="space-y-1">
+                          <div className="flex items-center space-x-2 text-sm">
+                            <User size={14} className="text-gray-400" />
+                            <span className="text-gray-600 dark:text-gray-300 font-mono">
+                              {cred.email || cred.username}
+                            </span>
+                          </div>
+                          <div className="flex items-center space-x-2 text-sm">
+                            <Lock size={14} className="text-gray-400" />
+                            <span className="text-gray-600 dark:text-gray-300 font-mono">
+                              {showPasswords[index] ? cred.password : '••••••••'}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

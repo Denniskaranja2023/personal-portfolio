@@ -27,6 +27,12 @@ export const projects = [
     duration: '1 week',
     team: 'Solo Project',
     role: 'Full Stack Developer',
+    loginCredentials: [
+      { role: 'AGENT', email: 'elizabeth.wanjiru@agent.com', password: 'agent' },
+      { role: 'CUSTOMER', email: 'dennis.karanja@customer.com', password: 'customer' },
+      { role: 'RESTAURANT', email: 'mamaskitchen@restaurant.com', password: 'restaurant' },
+      { role: 'ADMIN', email: 'john.admin@quickbite.com', password: 'admin' }
+    ],
   },
   {
     id: 2,
@@ -71,6 +77,12 @@ export const projects = [
     duration: '2 weeks',
     team: 'Worked with one partner',
     role: 'Full Stack Developer',
+    loginCredentials: [
+      { role: 'CLASSTEACHER', username: 'Anne Wanjiku', password: 'classteacher' },
+      { role: 'STUDENT', username: 'Charlie Kirk', password: 'student' },
+      { role: 'GUARDIAN', username: 'Andrew Kibe', password: 'guardian' },
+      { role: 'TEACHER', username: 'Jane Wambui', password: 'teacher' }
+    ],
   },
   {
     id: 4,
