@@ -59,7 +59,7 @@ export const projects = [
     image: Integrigrade,
     technologies: ['React', 'Flask', 'PostgreSQL'],
     github: 'https://github.com/Denniskaranja2023/IntegriGrade_phase_4_project',
-    live: 'https://integrigrade-report-system.onrender.com/',
+    live: 'https://integri-grade-phase-4-project.vercel.app/',
     features: [
       'Grade entry and management',
       'Parent/guardian access portal',
