@@ -42,7 +42,7 @@ export const projects = [
     image: SkillBridge,
     technologies: ['React', 'Flask', 'PostgreSQL', 'Google API', 'MpesaAPI', 'Socketio'],
     github: 'https://github.com/Denniskaranja2023/SkillBridge_project',
-    live: 'https://skillbridge-project-1.onrender.com/',
+    live: 'https://skillbridge-frontend-e0a0.onrender.com/',
     features: [
       'Client job posting and management',
       'Freelancer bidding system',
@@ -56,6 +56,11 @@ export const projects = [
     duration: '2 weeks',
     team: 'A group of 5',
     role: 'Full Stack Developer',
+    loginCredentials: [
+      { role: 'Admin', email: 'admin1@skillbridge.com', password: 'admin' },
+      { role: 'Client', email: 'denniswanyeki2021@gmail.com', password: 'client' },
+      { role: 'Freelancer', email: 'ruthwambui@gmail.com', password: 'freelancer' },
+    ],
   },
   {
     id: 3,
